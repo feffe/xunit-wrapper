@@ -60,7 +60,7 @@ def test_zero_duration(passed_process):
         process_to_xml_(process=passed_process)
     )
     assert re.search(
-        '<testsuite .*time="0">',
+        '<testsuite .*time="0".*>',
         process_to_xml_(process=passed_process)
     )
 
@@ -69,7 +69,7 @@ def test_duration(passed_process):
     xml = process_to_xml_(process=passed_process)
     m = re.search('<testsuites .*time="(.*)">', xml)
     assert float(m.group(1)) > 0
-    m = re.search('<testsuite .*time="(.*)">', xml)
+    m = re.search(r'<testsuite .*time="(.*?)".*>', xml)
     assert float(m.group(1)) > 0
 
 
