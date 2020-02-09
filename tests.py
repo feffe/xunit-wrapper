@@ -4,7 +4,7 @@ from unittest.mock import Mock
 import pytest
 from freezegun import freeze_time
 
-from xunitwrapper import process_to_xml
+from xunitify import process_to_xml
 
 
 @pytest.fixture
